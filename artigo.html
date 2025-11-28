@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artigo • Clínica Ishizava</title>
+
+    <!-- FONTES / ICONES / CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* ajustes exclusivos da página de artigo */
+        .artigo-titulo {
+            font-size: 2.7rem;
+            margin-bottom: 10px;
+            line-height: 1.15;
+        }
+
+        .artigo-meta {
+            font-size: 1rem;
+            color: #444;
+            margin-bottom: 25px;
+            font-family: "Inter", sans-serif;
+        }
+
+        .artigo-conteudo {
+            font-size: 1.18rem;
+            line-height: 1.7;
+            color: #000;
+            margin-top: 25px;
+            white-space: pre-line; /* garante quebra de linha do CSV */
+        }
+
+        .artigo-img {
+            width: 100%;
+            max-width: 750px;
+            border-radius: 14px;
+            margin: 25px auto;
+            display: block;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+        }
+
+        .voltar-btn {
+            margin-top: 35px;
+            display: inline-block;
+        }
+
+        @media(max-width: 768px){
+            .artigo-titulo {
+                font-size: 2rem;
+            }
+            .artigo-conteudo {
+                font-size: 1.05rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<section class="fundo-branco">
+    <div class="container" id="artigo-container">
+        <h2>Carregando artigo...</h2>
+    </div>
+</section>
+
+<script>
+/* ============================================================
+   URL DO CSV DO GOOGLE SHEETS
+============================================================ */
+const csvUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vT2QtZrlZdSIo5Bb5Jc24boSav8yo1WCq786jXIc1SppJjtOPeV-vb6_vk4V_ts1uOVPJCUJKmjqqpQ/pub?output=csv";
+
+
+/* ============================================================
+   PARSE DE CSV (SUPORTA TEXTOS COM VÍRGULAS E ASPAS)
+============================================================ */
+function parseCSV(text) {
+    const linhas = text.trim().split("\n");
+    const cabecalho = linhas[0].split(",");
+
+    return linhas.slice(1).map(linha => {
+        const valores = linha.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
+        let obj = {};
+        valores.forEach((v, i) => obj[cabecalho[i]] = v.replace(/^"|"$/g, ""));
+        return obj;
+    });
+}
+
+
+/* ============================================================
+   CARREGAR ARTIGO INDIVIDUAL VIA SLUG
+============================================================ */
+function carregarArtigo() {
+    const params = new URLSearchParams(window.location.search);
+    const slug = params.get("slug");
+
+    fetch(csvUrl)
+        .then(r => r.text())
+        .then(t => {
+            const artigos = parseCSV(t);
+            const artigo = artigos.find(a => a.slug === slug);
+
+            const container = document.getElementById("artigo-container");
+
+            if (!artigo) {
+                container.innerHTML = `
+                    <h1 class="artigo-titulo">Artigo não encontrado</h1>
+                    <a href="index.html#blog" class="button-primary voltar-btn">
+                        <i class="fa-solid fa-arrow-left"></i> Voltar ao Blog
+                    </a>
+                `;
+                return;
+            }
+
+            container.innerHTML = `
+                <h1 class="artigo-titulo">${artigo.titulo}</h1>
+
+                <p class="artigo-meta">
+                    <i class="fa-solid fa-calendar-days"></i> ${artigo.data}
+                    &nbsp; • &nbsp;
+                    <i class="fa-solid fa-user-doctor"></i> ${artigo.autor}
+                </p>
+
+                ${artigo.imagem
+                    ? `<img src="${artigo.imagem}" class="artigo-img">`
+                    : ""
+                }
+
+                <div class="artigo-conteudo">
+                    ${artigo.conteudo}
+                </div>
+
+                <a href="index.html#blog" class="button-primary voltar-btn">
+                    <i class="fa-solid fa-arrow-left"></i> Voltar ao Blog
+                </a>
+            `;
+        });
+}
+
+carregarArtigo();
+</script>
+
+</body>
+</html>
