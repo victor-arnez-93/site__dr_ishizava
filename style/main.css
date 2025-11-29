@@ -487,6 +487,50 @@ p, li, input, textarea, button {
 ============================================================ */
 
 @media (max-width: 768px) {
+    /* Header mobile - 2 linhas */
+    .header-container {
+        flex-direction: column;
+        gap: 15px;
+        padding: 10px 0;
+    }
+
+    .logo-area {
+        justify-content: center;
+    }
+
+    .logo {
+        height: 50px;
+    }
+
+    .titulo-clinica {
+        font-size: 1.1rem;
+    }
+
+    .menu {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+
+    .menu a {
+        margin-left: 0;
+        font-size: 0.9rem;
+    }
+
+    .menu .button-primary {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+        gap: 5px;
+    }
+
+    .menu .button-primary i {
+        font-size: 0.9rem;
+    }
+
+    /* Hero mobile */
     .hero-card {
         padding: 40px 25px;
     }
@@ -495,11 +539,18 @@ p, li, input, textarea, button {
         font-size: 2rem;
     }
 
+    .hero-card .button-primary {
+        font-size: 0.95rem;
+        padding: 12px 22px;
+    }
+
+    /* Sobre mobile */
     .foto-perfil {
         width: 180px;
         height: 180px;
     }
 
+    /* Serviços mobile */
     .servico-card {
         width: 90%;
         max-width: 320px;
@@ -510,13 +561,17 @@ p, li, input, textarea, button {
         grid-template-columns: 1fr;
     }
 
-    .menu {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
+    /* Contato mobile */
+    .contato-texto {
+        font-size: 1rem;
     }
 
-    .menu a {
-        margin-left: 0;
+    /* Footer mobile */
+    .footer-social {
+        gap: 20px;
+    }
+
+    .footer-social a i {
+        font-size: 1.5rem;
     }
 }
