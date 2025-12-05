@@ -3,144 +3,206 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artigo • Clínica Ishizava</title>
+    <title>Artigo - Clínica Ishizava</title>
 
-    <!-- FONTES / ICONES / CSS -->
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style/main.css">
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- FONTAWESOME -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+    <!-- CSS -->
+    <link rel="stylesheet" href="style/main.css">
+
     <style>
-        /* ajustes exclusivos da página de artigo */
-        .artigo-titulo {
-            font-size: 2.7rem;
-            margin-bottom: 10px;
-            line-height: 1.15;
+        .artigo-completo {
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 40px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+        }
+
+        .artigo-completo h1 {
+            color: #0B1822;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
         }
 
         .artigo-meta {
-            font-size: 1rem;
-            color: #444;
-            margin-bottom: 25px;
-            font-family: "Inter", sans-serif;
+            color: #78A06D;
+            font-size: 0.95rem;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
         }
 
         .artigo-conteudo {
-            font-size: 1.18rem;
-            line-height: 1.7;
-            color: #000;
-            margin-top: 25px;
-            white-space: pre-line; /* garante quebra de linha do CSV */
+            color: #333;
+            line-height: 1.8;
+            font-size: 1.1rem;
         }
 
-        .artigo-img {
-            width: 100%;
-            max-width: 750px;
-            border-radius: 14px;
-            margin: 25px auto;
-            display: block;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+        .artigo-conteudo p {
+            margin-bottom: 20px;
         }
 
         .voltar-btn {
-            margin-top: 35px;
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 40px;
         }
 
-        @media(max-width: 768px){
-            .artigo-titulo {
-                font-size: 2rem;
-            }
-            .artigo-conteudo {
-                font-size: 1.05rem;
-            }
+        .artigo-nao-encontrado {
+            max-width: 800px;
+            margin: 100px auto;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .artigo-nao-encontrado h1 {
+            color: #0B1822;
+            margin-bottom: 30px;
+            font-size: 2rem;
         }
     </style>
 </head>
-
 <body>
 
-<section class="fundo-branco">
-    <div class="container" id="artigo-container">
-        <h2>Carregando artigo...</h2>
-    </div>
-</section>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo-area">
+                <img src="imagens/logo1.png" class="logo" alt="Logo Clínica Ishizava">
+                <span class="titulo-clinica">CLÍNICA ISHIZAVA</span>
+            </div>
+            <nav class="menu">
+                <a href="index.html#sobre">Sobre</a>
+                <a href="index.html#servicos">Serviços</a>
+                <a href="index.html#blog">Artigos</a>
+                <a href="index.html#contato" class="btn-contato button-primary"><i class="fa-solid fa-phone"></i> Contato</a>
+            </nav>
+        </div>
+    </header>
 
-<script>
-/* ============================================================
-   URL DO CSV DO GOOGLE SHEETS
-============================================================ */
-const csvUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vT2QtZrlZdSIo5Bb5Jc24boSav8yo1WCq786jXIc1SppJjtOPeV-vb6_vk4V_ts1uOVPJCUJKmjqqpQ/pub?output=csv";
+    <!-- ARTIGO -->
+    <section class="fundo1" style="padding: 60px 0;">
+        <div class="artigo-completo" id="artigo-container">
+            <h1>Carregando artigo...</h1>
+        </div>
+    </section>
 
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-social">
+            <a href="https://www.instagram.com/dr.rishizava.dor/" target="_blank" rel="noopener noreferrer" aria-label="Instagram profissional">
+                <i class="fa-brands fa-instagram fa-2x"></i>
+            </a>
+            <a href="https://www.instagram.com/renatotakeshi/" target="_blank" rel="noopener noreferrer" aria-label="Instagram pessoal">
+                <i class="fa-brands fa-instagram fa-2x"></i>
+            </a>
+            <a href="https://www.facebook.com/renato.ishizava/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <i class="fa-brands fa-facebook fa-2x"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/renato-takeshi-ishizava-b25558142/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <i class="fa-brands fa-linkedin fa-2x"></i>
+            </a>
+        </div>
+        <p>© 2025 Clínica Ishizava — Desenvolvido por CRV Soluções em TI</p>
+    </footer>
 
-/* ============================================================
-   PARSE DE CSV (SUPORTA TEXTOS COM VÍRGULAS E ASPAS)
-============================================================ */
-function parseCSV(text) {
-    const linhas = text.trim().split("\n");
-    const cabecalho = linhas[0].split(",");
+    <script>
+        // URL CSV
+        const csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT2QtZrlZdSIo5Bb5Jc24boSav8yo1WCq786jXIc1SppJjtOPeV-vb6_vk4V_ts1uOVPJCUJKmjqqpQ/pub?output=csv';
 
-    return linhas.slice(1).map(linha => {
-        const valores = linha.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
-        let obj = {};
-        valores.forEach((v, i) => obj[cabecalho[i]] = v.replace(/^"|"$/g, ""));
-        return obj;
-    });
-}
+        // Parse CSV
+        function parseCSV(csv) {
+            const linhas = csv.trim().split(/\r?\n/);
+            const separador = linhas[0].includes(";") ? ";" : ",";
+            const cabecalho = linhas[0]
+                .split(separador)
+                .map(h => h.trim().replace(/(^"|"$)/g, ""));
 
+            return linhas.slice(1).map(linha => {
+                const partes = [];
+                let atual = "";
+                let dentroDeAspas = false;
 
-/* ============================================================
-   CARREGAR ARTIGO INDIVIDUAL VIA SLUG
-============================================================ */
-function carregarArtigo() {
-    const params = new URLSearchParams(window.location.search);
-    const slug = params.get("slug");
-
-    fetch(csvUrl)
-        .then(r => r.text())
-        .then(t => {
-            const artigos = parseCSV(t);
-            const artigo = artigos.find(a => a.slug === slug);
-
-            const container = document.getElementById("artigo-container");
-
-            if (!artigo) {
-                container.innerHTML = `
-                    <h1 class="artigo-titulo">Artigo não encontrado</h1>
-                    <a href="index.html#blog" class="button-primary voltar-btn">
-                        <i class="fa-solid fa-arrow-left"></i> Voltar ao Blog
-                    </a>
-                `;
-                return;
-            }
-
-            container.innerHTML = `
-                <h1 class="artigo-titulo">${artigo.titulo}</h1>
-
-                <p class="artigo-meta">
-                    <i class="fa-solid fa-calendar-days"></i> ${artigo.data}
-                    &nbsp; • &nbsp;
-                    <i class="fa-solid fa-user-doctor"></i> ${artigo.autor}
-                </p>
-
-                ${artigo.imagem
-                    ? `<img src="${artigo.imagem}" class="artigo-img">`
-                    : ""
+                for (let char of linha) {
+                    if (char === '"' && dentroDeAspas) {
+                        dentroDeAspas = false;
+                    } else if (char === '"' && !dentroDeAspas) {
+                        dentroDeAspas = true;
+                    } else if (char === separador && !dentroDeAspas) {
+                        partes.push(atual.trim());
+                        atual = "";
+                    } else {
+                        atual += char;
+                    }
                 }
+                partes.push(atual.trim());
 
-                <div class="artigo-conteudo">
-                    ${artigo.conteudo}
-                </div>
+                const obj = {};
+                cabecalho.forEach((col, i) => {
+                    obj[col] = partes[i]?.replace(/(^"|"$)/g, "") ?? "";
+                });
+                return obj;
+            });
+        }
 
-                <a href="index.html#blog" class="button-primary voltar-btn">
-                    <i class="fa-solid fa-arrow-left"></i> Voltar ao Blog
-                </a>
-            `;
-        });
-}
+        // Carregar artigo individual
+        function carregarArtigo() {
+            const params = new URLSearchParams(window.location.search);
+            const slug = params.get('slug');
 
-carregarArtigo();
-</script>
+            fetch(csvUrl)
+                .then(r => r.text())
+                .then(t => {
+                    const artigos = parseCSV(t);
+                    const artigo = artigos.find(a => a.slug === slug);
+                    const container = document.getElementById("artigo-container");
 
+                    if (!artigo) {
+                        container.innerHTML = `
+                            <div class="artigo-nao-encontrado">
+                                <h1>Artigo não encontrado</h1>
+                                <p>Desculpe, este artigo não está disponível.</p>
+                                <a href="index.html#blog" class="button-primary voltar-btn">
+                                    <i class="fa-solid fa-arrow-left"></i> Voltar ao Blog
+                                </a>
+                            </div>
+                        `;
+                        return;
+                    }
+
+                    container.innerHTML = `
+                        <h1>${artigo.titulo}</h1>
+                        <div class="artigo-meta">
+                            <i class="fa-solid fa-calendar-days"></i> ${artigo.data}
+                            &nbsp; | &nbsp;
+                            <i class="fa-solid fa-user-doctor"></i> ${artigo.autor}
+                        </div>
+                        ${artigo.imagem ? `<img src="${artigo.imagem}" style="width:100%; border-radius:12px; margin: 30px 0;" alt="${artigo.titulo}">` : ''}
+                        <div class="artigo-conteudo">${artigo.conteudo}</div>
+                        <a href="index.html#blog" class="button-primary voltar-btn">
+                            <i class="fa-solid fa-arrow-left"></i> Voltar ao Blog
+                        </a>
+                    `;
+                })
+                .catch(err => {
+                    console.error('Erro:', err);
+                    container.innerHTML = '<p>Erro ao carregar artigo.</p>';
+                });
+        }
+
+        // Executar ao carregar
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', carregarArtigo);
+        } else {
+            carregarArtigo();
+        }
+    </script>
 </body>
 </html>

@@ -123,7 +123,32 @@ function carregarArtigos() {
 
             if (!container) return;
 
+            container.innerHTML = artigos.map(a => `
+                <div class="artigo-card">
+                    <h3>${a.titulo}</h3>
+                    <p>${a.resumo}</p>
+                    <a href="artigo.html?slug=${a.slug}" class="leia-mais">
+                        Ler completo <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            `).join('');
 
+            // 🔥 FORÇAR ANIMAÇÃO DOS NOVOS ELEMENTOS
+            setTimeout(() => {
+                document.querySelectorAll('#lista-artigos .artigo-card').forEach(card => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                });
+            }, 100);
+        })
+        .catch(err => {
+            console.error('Erro ao carregar artigos:', err);
+            const container = document.getElementById("lista-artigos");
+            if (container) {
+                container.innerHTML = '<p style="text-align:center; color:#999;">Erro ao carregar artigos. Tente novamente mais tarde.</p>';
+            }
+        });
+}
 
             // 🔥 FORÇAR ANIMAÇÃO DOS NOVOS ELEMENTOS
             setTimeout(() => {
