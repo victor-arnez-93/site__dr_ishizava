@@ -124,7 +124,7 @@ function carregarArtigos() {
             if (!container) return;
 
             container.innerHTML = artigos.map(a => `
-                <div class="artigo-card">
+                <div class="artigo-card animar">
                     <h3>${a.titulo}</h3>
                     <p>${a.resumo}</p>
                     <a href="artigo.html?slug=${a.slug}" class="leia-mais">
@@ -132,23 +132,6 @@ function carregarArtigos() {
                     </a>
                 </div>
             `).join('');
-
-            // 🔥 FORÇAR ANIMAÇÃO DOS NOVOS ELEMENTOS
-            setTimeout(() => {
-                document.querySelectorAll('#lista-artigos .artigo-card').forEach(card => {
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
-                });
-            }, 100);
-        })
-        .catch(err => {
-            console.error('Erro ao carregar artigos:', err);
-            const container = document.getElementById("lista-artigos");
-            if (container) {
-                container.innerHTML = '<p style="text-align:center; color:#999;">Erro ao carregar artigos. Tente novamente mais tarde.</p>';
-            }
-        });
-}
 
             // 🔥 FORÇAR ANIMAÇÃO DOS NOVOS ELEMENTOS
             setTimeout(() => {
@@ -169,52 +152,8 @@ function carregarArtigos() {
 /* ============================================================
    INICIALIZAR CARREGAMENTO DOS ARTIGOS
 ============================================================ */
-// Garantir que o DOM está pronto antes de carregar
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', carregarArtigos);
 } else {
     carregarArtigos();
 }
-// DEBUG - REMOVER DEPOIS
-console.log('🔍 INICIANDO DEBUG');
-
-if (document.readyState === 'loading') {
-    console.log('⏳ DOM ainda carregando...');
-    document.addEventListener('DOMContentLoaded', () => {
-        console.log('✅ DOMContentLoaded disparado');
-        testarCarregamento();
-    });
-} else {
-    console.log('✅ DOM já pronto');
-    testarCarregamento();
-}
-
-function testarCarregamento() {
-    const container = document.getElementById("lista-artigos");
-    console.log('📦 Container encontrado?', container !== null);
-    console.log('🌐 Buscando CSV...');
-
-    fetch(csvUrl)
-        .then(r => r.text())
-        .then(t => {
-            console.log('✅ CSV recebido, tamanho:', t.length);
-            const artigos = parseCSV(t);
-            console.log('📝 Artigos parseados:', artigos.length);
-            console.log('📋 Primeiro artigo:', artigos[0]);
-
-            if (container) {
-                container.innerHTML = artigos.map(a => `
-                    <div class="artigo-card animar">
-                        <h3>${a.titulo}</h3>
-                        <p>${a.resumo}</p>
-                        <a href="artigo.html?slug=${a.slug}" class="leia-mais">
-                            Ler completo <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-                    </div>
-                `).join('');
-                console.log('✅ HTML inserido no container');
-            }
-        })
-        .catch(err => console.error('❌ ERRO:', err));
-}
-
