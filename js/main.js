@@ -157,3 +157,53 @@ if (document.readyState === 'loading') {
 } else {
     carregarArtigos();
 }
+
+/* ============================================================
+   ENVIO DO FORMULÁRIO PARA GOOGLE SHEETS
+============================================================ */
+const formContato = document.querySelector('#contato form');
+
+if (formContato) {
+  formContato.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const btnEnviar = this.querySelector('.btn-enviar');
+    const textoOriginal = btnEnviar.textContent;
+
+    // Mostra mensagem de carregamento
+    btnEnviar.textContent = 'Enviando...';
+    btnEnviar.disabled = true;
+    btnEnviar.style.opacity = '0.6';
+
+    // Captura os dados do formulário
+    const formData = new FormData(this);
+
+    // URL do Google Apps Script (COLE SUA URL AQUI)
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxAjnp8gCBfqtXLtGL-8seatVXEAkn0b3wZ5GgxKF3QNHECnI3v8NjKNRUrZo4_yhpu/exec';
+
+    // Envia para o Google Sheets
+    fetch(scriptURL, {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+      if(data.status === 'success') {
+        alert('✅ Mensagem enviada com sucesso!\n\nEm breve entraremos em contato. Obrigado!');
+        formContato.reset();
+      } else {
+        alert('❌ Erro ao enviar: ' + data.message);
+      }
+    })
+    .catch(error => {
+      alert('❌ Erro ao enviar mensagem.\n\nPor favor, tente novamente ou entre em contato pelo WhatsApp.');
+      console.error('Erro:', error);
+    })
+    .finally(() => {
+      // Restaura o botão
+      btnEnviar.textContent = textoOriginal;
+      btnEnviar.disabled = false;
+      btnEnviar.style.opacity = '1';
+    });
+  });
+}

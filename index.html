@@ -120,30 +120,41 @@
 
             <br><br>
 
-            <form action="https://formsubmit.co/clinicaishizava@gmail.com" method="POST" class="form-contato form-bg">
-                <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_template" value="box">
-                <input type="hidden" name="_autoresponse" value="Recebemos sua mensagem! Em breve retornaremos.">
+<form id="form-contato" class="form-contato form-bg">
 
-                <div class="campo">
-                    <label for="nome"><i class="fa-solid fa-user"></i> Nome completo</label>
-                    <input type="text" id="nome" name="nome" required>
-                </div>
+  <div class="campo">
+    <label for="nome">
+      <i class="fa-solid fa-user"></i> Nome completo
+    </label>
+    <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required>
+  </div>
 
-                <div class="campo">
-                    <label for="email"><i class="fa-solid fa-envelope"></i> E-mail</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
+  <div class="campo">
+    <label for="email">
+      <i class="fa-solid fa-envelope"></i> E-mail
+    </label>
+    <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+  </div>
 
-                <div class="campo">
-                    <label for="mensagem"><i class="fa-solid fa-comment"></i> Mensagem</label>
-                    <textarea id="mensagem" name="mensagem" required></textarea>
-                </div>
+  <div class="campo">
+    <label for="telefone">
+      <i class="fa-solid fa-phone"></i> Telefone (opcional)
+    </label>
+    <input type="tel" id="telefone" name="telefone" placeholder="(15) 99999-9999">
+  </div>
 
-                <button type="submit" class="button-primary">
-                    <i class="fa-solid fa-paper-plane"></i> Enviar mensagem
-                </button>
-            </form>
+  <div class="campo">
+    <label for="mensagem">
+      <i class="fa-solid fa-comment"></i> Mensagem
+    </label>
+    <textarea id="mensagem" name="mensagem" rows="5" placeholder="Descreva sua necessidade..." required></textarea>
+  </div>
+
+  <button type="submit" class="btn-enviar button-primary">
+    <i class="fa-solid fa-paper-plane"></i> Enviar mensagem
+  </button>
+
+</form>
 
             <!-- LOCALIZAÇÃO COM GOOGLE MAPS -->
             <div class="localizacao">
