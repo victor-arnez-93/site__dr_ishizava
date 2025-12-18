@@ -179,7 +179,7 @@ if (formContato) {
     const formData = new FormData(this);
 
     // URL do Google Apps Script (COLE SUA URL AQUI)
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbxAjnp8gCBfqtXLtGL-8seatVXEAkn0b3wZ5GgxKF3QNHECnI3v8NjKNRUrZo4_yhpu/exec';
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzT4PNmDwXEKazekvW46SV37mIzjnsLxfq5Von9QrYVlrXCgT6UQsybXQ6edvvfw0bkIw/exec';
 
     // Envia para o Google Sheets
     fetch(scriptURL, {
