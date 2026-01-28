@@ -65,6 +65,20 @@ document.querySelectorAll("input, textarea").forEach(campo => {
     });
 });
 
+/* ============================= */
+/* BOTÃO VOLTAR AO TOPO */
+/* ============================= */
+
+const btnTop = document.querySelector('.floating-top');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+        btnTop.style.display = 'flex';
+    } else {
+        btnTop.style.display = 'none';
+    }
+});
+
 /* ============================================================
    URL DO CSV DA PLANILHA GOOGLE SHEETS
 ============================================================ */
