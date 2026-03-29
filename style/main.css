@@ -196,11 +196,15 @@ p, li, input, textarea, button {
 }
 
 /* ============================================================
-   SOBRE
+   SOBRE — corrigido para fundo ocupar 100% da largura
 ============================================================ */
 
 .sobre {
     text-align: center;
+    /* REMOVIDO: width e margin que cortavam o fundo */
+}
+
+.sobre-inner {
     width: 90%;
     max-width: 850px;
     margin: auto;
