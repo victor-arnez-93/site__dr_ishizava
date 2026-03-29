@@ -11,8 +11,8 @@
 body {
     font-family: 'Manrope', sans-serif;
     background: #f6f7f9;
-    color: #000;
-    line-height: 1.5;
+    color: #1a1a1a;
+    line-height: 1.6;
 }
 
 /* ============================================================
@@ -23,7 +23,32 @@ h1, h2, h3 {
     font-family: 'Julius Sans One', sans-serif;
     color: #0B1822;
     font-weight: 400;
+    letter-spacing: 1px;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 12px;
+    position: relative;
+    display: inline-block;
+}
+
+/* Linha decorativa sob títulos de seção */
+h2::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: #78A06D;
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+h3 {
+    font-size: 1.25rem;
     letter-spacing: 0.5px;
+    margin-bottom: 10px;
+    color: #0B1C46;
 }
 
 .subtitulo,
@@ -32,11 +57,22 @@ label {
     font-family: 'Manrope', sans-serif;
     color: #78A06D;
     font-weight: 600;
+    letter-spacing: 0.3px;
 }
 
 p, li, input, textarea, button {
     font-family: 'Manrope', sans-serif;
-    color: #000;
+    color: #1a1a1a;
+}
+
+p {
+    line-height: 1.85;
+    margin-bottom: 18px;
+}
+
+strong {
+    color: #0B1C46;
+    font-weight: 700;
 }
 
 /* ============================================================
@@ -98,7 +134,8 @@ p, li, input, textarea, button {
     text-decoration: none;
     color: #0B1822;
     font-weight: 500;
-    transition: .2s;
+    letter-spacing: 0.3px;
+    transition: color .2s ease;
 }
 
 .menu a:hover {
@@ -106,7 +143,7 @@ p, li, input, textarea, button {
 }
 
 /* ============================================================
-   BUTTON PRIMARY — novo estilo com neon
+   BUTTON PRIMARY — neon elegante
 ============================================================ */
 
 .button-primary {
@@ -120,6 +157,7 @@ p, li, input, textarea, button {
     border: 2px solid #0B1C46;
     border-radius: 40px;
     font-weight: 600;
+    letter-spacing: 0.4px;
     text-decoration: none;
     transition: all .3s ease;
     cursor: pointer;
@@ -146,26 +184,29 @@ p, li, input, textarea, button {
 }
 
 /* ============================================================
-   FUNDOS — fundo1 e fundo2 com posicionamento otimizado
+   FUNDOS — fundo1 e fundo2 largura total garantida
 ============================================================ */
 
 .fundo1 {
+    width: 100%;
     background: url("../imagens/fundo1.png") center center / cover no-repeat;
     background-attachment: fixed;
-    padding: 80px 0;
+    padding: 90px 0;
     position: relative;
 }
 
 .fundo2 {
+    width: 100%;
     background: url("../imagens/fundo2.png") center center / cover no-repeat;
     background-attachment: fixed;
-    padding: 80px 0;
+    padding: 90px 0;
     position: relative;
 }
 
 .fundo-branco {
+    width: 100%;
     background: white;
-    padding: 80px 0;
+    padding: 90px 0;
 }
 
 /* ============================================================
@@ -179,29 +220,33 @@ p, li, input, textarea, button {
 
 .hero-card {
     background: white;
-    padding: 55px 45px;
+    padding: 60px 50px;
     border-radius: 20px;
     max-width: 700px;
+    width: 90%;
     text-align: center;
-    box-shadow: 0 0 18px rgba(0,0,0,0.08);
+    box-shadow: 0 4px 28px rgba(0,0,0,0.10);
 }
 
 .hero-card h1 {
     font-size: 2.6rem;
+    line-height: 1.3;
+    margin-bottom: 8px;
 }
 
 .hero-card p {
     font-size: 1.1rem;
     margin: 25px 0;
+    color: #333;
+    line-height: 1.9;
 }
 
 /* ============================================================
-   SOBRE — corrigido para fundo ocupar 100% da largura
+   SOBRE — fundo ocupa 100%, conteúdo contido internamente
 ============================================================ */
 
 .sobre {
     text-align: center;
-    /* REMOVIDO: width e margin que cortavam o fundo */
 }
 
 .sobre-inner {
@@ -210,9 +255,46 @@ p, li, input, textarea, button {
     margin: auto;
 }
 
+.sobre h2 {
+    margin-bottom: 6px;
+}
+
+.sobre h3 {
+    margin-top: 30px;
+    margin-bottom: 14px;
+    color: #0B1C46;
+    font-size: 1.15rem;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+
 .sobre p {
+    margin-bottom: 16px;
+    line-height: 1.9;
+    color: #1a1a1a;
+}
+
+.sobre ul {
+    list-style: none;
+    padding: 0;
     margin-bottom: 20px;
-    line-height: 1.8;
+}
+
+.sobre ul li {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(120,160,109,0.2);
+    color: #1a1a1a;
+    line-height: 1.7;
+}
+
+.sobre ul li:last-child {
+    border-bottom: none;
+}
+
+.sobre ul li::before {
+    content: '✦ ';
+    color: #78A06D;
+    font-size: 0.75rem;
 }
 
 .foto-perfil {
@@ -220,35 +302,54 @@ p, li, input, textarea, button {
     height: 230px;
     object-fit: cover;
     border-radius: 50%;
-    margin: 25px 0;
-    box-shadow: 0 0 12px rgba(0,0,0,0.12);
+    margin: 30px 0;
+    box-shadow: 0 0 0 5px rgba(120,160,109,0.25),
+                0 8px 24px rgba(0,0,0,0.12);
 }
 
 /* ============================================================
-   SERVIÇOS — hover com borda azul e neon
+   SERVIÇOS — hover neon com elevação
 ============================================================ */
 
 .servicos {
     text-align: center;
 }
 
+.servicos h2 {
+    margin-bottom: 6px;
+}
+
 .servicos-grid {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 25px;
-    margin-top: 40px;
+    gap: 28px;
+    margin-top: 45px;
 }
 
 .servico-card {
     background: white;
     width: 280px;
-    padding: 25px;
-    border-radius: 12px;
+    padding: 30px 25px;
+    border-radius: 14px;
     border: 2px solid transparent;
     transition: all 0.35s ease;
     text-align: center;
     box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+}
+
+.servico-card h3 {
+    font-size: 1.1rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #0B1822;
+}
+
+.servico-card p {
+    font-size: 0.95rem;
+    color: #444;
+    line-height: 1.7;
+    margin-bottom: 0;
 }
 
 .servico-card:hover {
@@ -271,11 +372,15 @@ p, li, input, textarea, button {
     text-align: center;
 }
 
+.blog h2 {
+    margin-bottom: 6px;
+}
+
 #lista-artigos {
-    margin-top: 40px;
+    margin-top: 45px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
+    gap: 28px;
     max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
@@ -283,7 +388,7 @@ p, li, input, textarea, button {
 
 .artigo-card {
     background: white;
-    padding: 25px;
+    padding: 28px;
     border-radius: 14px;
     border: 2px solid transparent;
     box-shadow: 0 4px 14px rgba(0,0,0,0.08);
@@ -301,20 +406,23 @@ p, li, input, textarea, button {
 .artigo-card h3 {
     color: #0B1822;
     font-weight: 600;
-    margin-bottom: 12px;
-    font-size: 1.3rem;
+    margin-bottom: 14px;
+    font-size: 1.2rem;
+    line-height: 1.4;
 }
 
 .artigo-card p {
     color: #444;
-    margin-bottom: 15px;
-    line-height: 1.6;
+    margin-bottom: 16px;
+    line-height: 1.75;
+    font-size: 0.97rem;
 }
 
 .leia-mais {
-    font-weight: 600;
+    font-weight: 700;
     color: #78A06D;
     text-decoration: none;
+    letter-spacing: 0.3px;
     transition: 0.2s ease;
 }
 
@@ -344,28 +452,29 @@ p, li, input, textarea, button {
 }
 
 .contato h2 {
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 .contato-texto {
-    font-size: 1.1rem;
-    margin-bottom: 25px;
-    line-height: 1.8;
+    font-size: 1.05rem;
+    margin-bottom: 28px;
+    line-height: 1.9;
+    color: #333;
 }
 
 /* ============================================================
-   FORMULÁRIO — campos com hover verde, ícones azuis
+   FORMULÁRIO — campos elegantes com foco verde
 ============================================================ */
 
 .form-contato {
     width: 100%;
     max-width: 600px;
     margin: 35px auto 0;
-    padding: 35px;
+    padding: 40px;
     border-radius: 22px;
     background: rgba(255,255,255,0.75);
     backdrop-filter: blur(10px);
-    box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.10);
     background-image: url("../imagens/imgform.png");
     background-size: cover;
     background-position: center;
@@ -373,7 +482,7 @@ p, li, input, textarea, button {
 }
 
 .campo {
-    margin-bottom: 20px;
+    margin-bottom: 22px;
     text-align: left;
 }
 
@@ -381,7 +490,9 @@ p, li, input, textarea, button {
     display: block;
     margin-bottom: 8px;
     color: #0B1C46;
-    font-weight: 600;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
 }
 
 .campo label i {
@@ -391,12 +502,13 @@ p, li, input, textarea, button {
 .campo input,
 .campo textarea {
     width: 100%;
-    padding: 12px;
+    padding: 13px 14px;
     border: 2px solid #ccc;
     border-radius: 8px;
-    background: rgba(255,255,255,0.90);
+    background: rgba(255,255,255,0.92);
     font-size: 1rem;
     transition: all 0.3s ease;
+    color: #1a1a1a;
 }
 
 .campo input:focus,
@@ -420,18 +532,21 @@ p, li, input, textarea, button {
 ============================================================ */
 
 .localizacao {
-    margin-top: 50px;
+    margin-top: 55px;
     text-align: center;
 }
 
 .localizacao h3 {
     margin-bottom: 15px;
     color: #0B1822;
+    font-size: 1.15rem;
+    letter-spacing: 0.8px;
 }
 
 .localizacao p {
     font-size: 1.05rem;
     color: #333;
+    line-height: 1.8;
 }
 
 /* ============================================================
@@ -450,24 +565,26 @@ p, li, input, textarea, button {
 }
 
 /* ============================================================
-   FOOTER — texto verde
+   FOOTER
 ============================================================ */
 
 .footer {
     background: #0B1822;
     text-align: center;
-    padding: 25px;
+    padding: 30px 25px;
     margin-top: 70px;
 }
 
 .footer p {
     color: #78A06D !important;
     margin: 0;
+    letter-spacing: 0.3px;
+    font-size: 0.95rem;
 }
 
-/* ============================= */
-/* BOTÕES FLUTUANTES FIXOS */
-/* ============================= */
+/* ============================================================
+   BOTÕES FLUTUANTES FIXOS
+============================================================ */
 
 .floating-buttons {
     position: fixed;
@@ -479,7 +596,6 @@ p, li, input, textarea, button {
     z-index: 9999;
 }
 
-/* WhatsApp */
 .floating-whatsapp {
     width: 56px;
     height: 56px;
@@ -501,7 +617,6 @@ p, li, input, textarea, button {
     text-decoration: none;
 }
 
-/* Voltar ao topo */
 .floating-top {
     width: 44px;
     height: 44px;
@@ -510,7 +625,7 @@ p, li, input, textarea, button {
     border-radius: 50%;
     border: none;
     cursor: pointer;
-    display: none; /* aparece só ao rolar */
+    display: none;
     align-items: center;
     justify-content: center;
     font-size: 18px;
@@ -549,7 +664,7 @@ p, li, input, textarea, button {
 ============================================================ */
 
 @media (max-width: 768px) {
-    /* Header mobile - 2 linhas */
+
     .header-container {
         flex-direction: column;
         gap: 15px;
@@ -592,7 +707,13 @@ p, li, input, textarea, button {
         font-size: 0.9rem;
     }
 
-    /* Hero mobile */
+    .fundo1,
+    .fundo2,
+    .fundo-branco {
+        padding: 60px 0;
+        background-attachment: scroll; /* evita bug de parallax no iOS */
+    }
+
     .hero-card {
         padding: 40px 25px;
     }
@@ -606,26 +727,30 @@ p, li, input, textarea, button {
         padding: 12px 22px;
     }
 
-    /* Sobre mobile */
+    h2 {
+        font-size: 1.65rem;
+    }
+
     .foto-perfil {
         width: 180px;
         height: 180px;
     }
 
-    /* Serviços mobile */
     .servico-card {
         width: 90%;
         max-width: 320px;
     }
 
-    /* Artigos empilhados no mobile */
     #lista-artigos {
         grid-template-columns: 1fr;
     }
 
-    /* Contato mobile */
     .contato-texto {
         font-size: 1rem;
+    }
+
+    .form-contato {
+        padding: 28px 20px;
     }
 
     .floating-buttons {
@@ -637,7 +762,6 @@ p, li, input, textarea, button {
         width: 52px;
         height: 52px;
         font-size: 26px;
-        text-decoration: none;
     }
 
     .floating-top {
@@ -646,7 +770,6 @@ p, li, input, textarea, button {
         font-size: 17px;
     }
 
-    /* Footer mobile */
     .footer-social {
         gap: 20px;
     }
