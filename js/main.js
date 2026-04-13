@@ -88,39 +88,46 @@ const csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT2QtZrlZdSIo5Bb
    PARSE DE CSV (SUPORTA TEXTOS COM VÍRGULAS E ASPAS)
 ============================================================ */
 function parseCSV(csv) {
-    const linhas = csv.trim().split(/\r?\n/);
+    const linhas = [];
+    let atual = '';
+    let dentroAspas = false;
 
-    // detectar separador automático (vírgula ou ponto e vírgula)
-    const separador = linhas[0].includes(";") ? ";" : ",";
+    for (let i = 0; i < csv.length; i++) {
+        const c = csv[i];
+        if (c === '"') {
+            if (dentroAspas && csv[i + 1] === '"') { atual += '"'; i++; }
+            else dentroAspas = !dentroAspas;
+        } else if ((c === '\n' || c === '\r') && !dentroAspas) {
+            if (c === '\r' && csv[i + 1] === '\n') i++;
+            linhas.push(atual);
+            atual = '';
+        } else {
+            atual += c;
+        }
+    }
+    if (atual) linhas.push(atual);
 
-    // cabeçalho limpo
-    const cabecalho = linhas[0]
-        .split(separador)
-        .map(h => h.trim().replace(/(^"|"$)/g, ""));
+    const cabecalho = linhas[0].split(',').map(h => h.replace(/(^"|"$)/g, '').trim());
 
-    return linhas.slice(1).map(linha => {
+    return linhas.slice(1).filter(l => l.trim()).map(linha => {
         const partes = [];
-        let atual = "";
-        let dentroDeAspas = false;
-
-        for (let char of linha) {
-            if (char === '"' && dentroDeAspas) {
-                dentroDeAspas = false;
-            } else if (char === '"' && !dentroDeAspas) {
-                dentroDeAspas = true;
-            } else if (char === separador && !dentroDeAspas) {
-                partes.push(atual.trim());
-                atual = "";
+        let campo = '';
+        let aspas = false;
+        for (let i = 0; i < linha.length; i++) {
+            const c = linha[i];
+            if (c === '"') {
+                if (aspas && linha[i + 1] === '"') { campo += '"'; i++; }
+                else aspas = !aspas;
+            } else if (c === ',' && !aspas) {
+                partes.push(campo);
+                campo = '';
             } else {
-                atual += char;
+                campo += c;
             }
         }
-        partes.push(atual.trim());
-
+        partes.push(campo);
         const obj = {};
-        cabecalho.forEach((col, i) => {
-            obj[col] = partes[i]?.replace(/(^"|"$)/g, "") ?? "";
-        });
+        cabecalho.forEach((col, i) => obj[col] = partes[i] ?? '');
         return obj;
     });
 }
