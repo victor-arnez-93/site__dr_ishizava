@@ -82,7 +82,7 @@ window.addEventListener('scroll', () => {
 /* ============================================================
    URL DO CSV DA PLANILHA GOOGLE SHEETS
 ============================================================ */
-const csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT2QtZrlZdSIo5Bb5Jc24boSav8yo1WCq786jXIc1SppJjtOPeV-vb6_vk4V_ts1uOVPJCUJKmjqqpQ/pub?gid=0&single=true&output=csv';
+const csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT2QtZrlZdSIo5Bb5Jc24boSav8yo1WCq786jXIc1SppJjtOPeV-vb6_vk4V_ts1uOVPJCUJKmjqqpQ/pub?gid=867322997&single=true&output=csv';
 
 /* ============================================================
    PARSE DE CSV (SUPORTA TEXTOS COM VÍRGULAS E ASPAS)
