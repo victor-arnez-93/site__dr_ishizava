@@ -350,4 +350,23 @@
     .meta-sep {
         display: none;
     }
+        .btn-whatsapp-artigo {
+        width: 100%;
+        justify-content: center;
+        padding: 12px 18px;
+        font-size: 0.92rem;
+        line-height: 1.35;
+        gap: 8px;
+        text-align: center;
+    }
+
+    .btn-whatsapp-artigo span {
+        display: inline-block;
+        max-width: 100%;
+    }
+
+    .btn-whatsapp-artigo i {
+        font-size: 1.15rem;
+        flex-shrink: 0;
+    }
 }
