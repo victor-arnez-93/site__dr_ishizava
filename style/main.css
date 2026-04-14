@@ -386,44 +386,134 @@ strong {
     margin-right: auto;
 }
 
+/* ── BLOG CARDS ── */
+@property --angle-card {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+#lista-artigos {
+    margin-top: 45px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .artigo-card {
+    position: relative;
     background: white;
     padding: 28px;
     border-radius: 14px;
-    border: 2px solid transparent;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-    transition: all 0.3s ease;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
     text-align: left;
+    isolation: isolate;
+    display: flex;
+    flex-direction: column;
+}
+
+/* borda animada */
+.artigo-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: conic-gradient(
+        from var(--angle-card),
+        transparent 0deg,
+        transparent 200deg,
+        #78A06D,
+        #b8d4a8,
+        #78A06D,
+        transparent 360deg
+    );
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: rotateCard 4s linear infinite;
+    z-index: 0;
+}
+
+/* glow flutuante */
+.artigo-card::after {
+    content: "";
+    position: absolute;
+    inset: -6px;
+    border-radius: inherit;
+    background: conic-gradient(
+        from var(--angle-card),
+        transparent 0deg,
+        transparent 200deg,
+        #78A06D,
+        #b8d4a8,
+        #78A06D,
+        transparent 360deg
+    );
+    filter: blur(28px);
+    opacity: 0;
+    animation: rotateCard 3.5s linear infinite;
+    transition: opacity 0.4s ease;
+    z-index: -1;
 }
 
 .artigo-card:hover {
-    transform: translateY(-5px);
-    border-color: #0B1C46;
-    box-shadow: 0 0 15px rgba(120,160,109,0.6),
-                0 0 25px rgba(120,160,109,0.4);
+    transform: translateY(-6px);
+}
+
+.artigo-card:hover::after {
+    opacity: 0.55;
+}
+
+@keyframes rotateCard {
+    to { --angle-card: 360deg; }
 }
 
 .artigo-card h3 {
+    position: relative;
+    z-index: 1;
     color: #0B1822;
     font-weight: 600;
-    margin-bottom: 14px;
+    margin-bottom: 10px;
     font-size: 1.2rem;
     line-height: 1.4;
 }
 
 .artigo-card p {
+    position: relative;
+    z-index: 1;
     color: #444;
     margin-bottom: 16px;
     line-height: 1.75;
     font-size: 0.97rem;
+
+    /* 2 linhas com reticências */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    /* altura fixa para todos os cards ficarem iguais */
+    min-height: calc(1.75em * 2);
+    flex-shrink: 0;
 }
 
 .leia-mais {
+    position: relative;
+    z-index: 1;
     font-weight: 700;
     color: #78A06D;
     text-decoration: none;
     letter-spacing: 0.3px;
     transition: 0.2s ease;
+    margin-top: auto; /* empurra o link sempre pro fundo do card */
 }
 
 .leia-mais:hover {

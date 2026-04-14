@@ -1,5 +1,5 @@
 /* ============================================================
-   ARTIGOS.CSS — Página de artigo individual
+   ARTIGO.CSS — Página de artigo individual
    Clínica Ishizava
 ============================================================ */
 
@@ -59,6 +59,7 @@
     font-family: 'Julius Sans One', serif;
     color: #0B1822;
     font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: bold;
     line-height: 1.3;
     text-align: left;
     margin-bottom: 20px;
@@ -147,6 +148,7 @@
     font-family: 'Julius Sans One', serif;
     color: #0B1822;
     font-size: 1.2rem;
+    font-weight: bold;
     margin-top: 40px;
     margin-bottom: 14px;
     padding-bottom: 10px;
@@ -182,28 +184,91 @@
 }
 
 /* ── BOTÃO WHATSAPP ── */
+/* ── BOTÃO WHATSAPP ── */
+@property --angle-whats {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
 .btn-whatsapp-artigo {
+    all: unset;
+    position: relative;
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    background-color: #25D366;
+    padding: 14px 32px;
+    border-radius: 999px;
+    background: #0d2e1a;
     color: #fff !important;
-    padding: 14px 28px;
-    border-radius: 50px;
     font-size: 1rem;
     font-weight: 600;
     text-decoration: none;
     margin: 30px 0 20px 0;
-    transition: background 0.2s, transform 0.2s;
+    cursor: pointer;
+    overflow: hidden;
 }
 
-.btn-whatsapp-artigo:hover {
-    background-color: #1ebe5d;
-    transform: scale(1.03);
+.btn-whatsapp-artigo span,
+.btn-whatsapp-artigo i {
+    position: relative;
+    z-index: 2;
+    transition: color 0.3s;
 }
 
 .btn-whatsapp-artigo i {
     font-size: 1.3rem;
+}
+
+.btn-whatsapp-artigo:hover span,
+.btn-whatsapp-artigo:hover i {
+    color: #78A06D;
+}
+
+.btn-whatsapp-artigo::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: conic-gradient(
+        from var(--angle-whats),
+        transparent 0deg,
+        transparent 240deg,
+        #78A06D,
+        #b8d4a8,
+        #78A06D,
+        transparent 360deg
+    );
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: rotateWhats 3s linear infinite;
+}
+
+.btn-whatsapp-artigo::after {
+    content: "";
+    position: absolute;
+    inset: -4px;
+    border-radius: inherit;
+    background: conic-gradient(
+        from var(--angle-whats),
+        transparent 0deg,
+        transparent 240deg,
+        #78A06D,
+        #b8d4a8,
+        #78A06D,
+        transparent 360deg
+    );
+    filter: blur(35px);
+    opacity: 0.5;
+    animation: rotateWhats 2.5s linear infinite;
+}
+
+@keyframes rotateWhats {
+    to { --angle-whats: 360deg; }
 }
 
 /* ── ASSINATURA ── */

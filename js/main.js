@@ -142,7 +142,7 @@ const ARTIGOS = [
 
 <p>Atendo presencialmente em <strong>Tatuí-SP</strong> e via <strong>Telemedicina</strong> para todo o Brasil.</p>
 
-<a href='https://wa.me/5515991236775' target='_blank' class='btn-whatsapp-artigo'><i class='fa-brands fa-whatsapp'></i> Clique aqui para agendarmos a sua avaliação</a>
+<a href='https://wa.me/5515991236775' target='_blank' class='btn-whatsapp-artigo'><i class='fa-brands fa-whatsapp'></i><span>Clique aqui para agendarmos a sua avaliação</span></a>
 
 <p class='assinatura'><strong>Dr. Renato Ishizava</strong><br>CRM/SP 217868 | RQE 135.751</p>`
     },
