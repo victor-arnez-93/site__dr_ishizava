@@ -199,7 +199,7 @@
     gap: 10px;
     padding: 14px 32px;
     border-radius: 999px;
-    background: #0d2e1a;
+    background: #1a4a2e;
     color: #fff !important;
     font-size: 1rem;
     font-weight: 600;
@@ -222,7 +222,7 @@
 
 .btn-whatsapp-artigo:hover span,
 .btn-whatsapp-artigo:hover i {
-    color: #78A06D;
+    color: #b8d4a8;
 }
 
 .btn-whatsapp-artigo::before {
