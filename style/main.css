@@ -380,10 +380,33 @@ strong {
     margin-top: 45px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 320px;
     gap: 28px;
     max-width: 1000px;
+    max-height: 336px;
     margin-left: auto;
     margin-right: auto;
+    padding: 8px 16px 8px 8px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    overscroll-behavior: contain;
+    scroll-behavior: smooth;
+    scrollbar-color: #78A06D rgba(120, 160, 109, 0.14);
+    scrollbar-width: thin;
+}
+
+#lista-artigos::-webkit-scrollbar {
+    width: 9px;
+}
+
+#lista-artigos::-webkit-scrollbar-track {
+    background: rgba(120, 160, 109, 0.14);
+    border-radius: 999px;
+}
+
+#lista-artigos::-webkit-scrollbar-thumb {
+    background: linear-gradient(#78A06D, #4f7245);
+    border-radius: 999px;
 }
 
 /* ── BLOG CARDS ── */
@@ -833,6 +856,9 @@ strong {
 
     #lista-artigos {
         grid-template-columns: 1fr;
+        grid-auto-rows: 310px;
+        max-height: 664px;
+        padding-right: 12px;
     }
 
     .contato-texto {

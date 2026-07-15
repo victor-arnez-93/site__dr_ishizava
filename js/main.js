@@ -82,13 +82,191 @@ window.addEventListener('scroll', () => {
 /* ============================================================
    ARTIGOS — DADOS DIRETO NO CÓDIGO
 ============================================================ */
+const ARTIGO_AUTOR_PADRAO = "Dr. Renato Ishizava — CRM/SP 217868 | RQE 135.245";
+
+const ARTIGO_RODAPE_PADRAO = `
+<p>Atendo presencialmente em <strong>Tatuí-SP</strong> e também via <strong>Telemedicina</strong> para todo o Brasil.</p>
+
+<a href='https://wa.me/5515991236775' target='_blank' class='btn-whatsapp-artigo'><i class='fa-brands fa-whatsapp'></i><span>Clique aqui para agendarmos a sua avaliação</span></a>
+
+<p class='assinatura'><strong>Dr. Renato Ishizava</strong><br>CRM/SP 217868 | RQE 135.245</p>`;
+
 const ARTIGOS = [
+    {
+        slug: "osteoartrite-artrose-joelho-tratamento-sem-cirurgia",
+        titulo: "Osteoartrite (Artrose) de Joelho: o que é, por que acontece e como tratar sem cirurgia",
+        resumo: "Você sente dor ao se levantar da cadeira pela manhã? Ao descer escadas, tem a sensação de que o joelho \"não obedece\"? No fim do dia, nota um inchaço leve e rigidez? Se a resposta for sim, você não está sozinho.",
+        data: "2026-07-13",
+        imagem: "imagens/imgart5.png",
+        fundo: "imagens/fundo1.png",
+        conteudo: `
+<h3>Introdução</h3>
+
+<p>Você sente dor ao se levantar da cadeira pela manhã? Ao descer escadas, tem a sensação de que o joelho "não obedece"? No fim do dia, nota um inchaço leve e rigidez? Se a resposta for sim, você não está sozinho.</p>
+
+<p>A osteoartrite (também conhecida como artrose) é a forma mais comum de artrite no mundo. De acordo com o Global Burden of Disease Study 2021, cerca de 595 milhões de pessoas viviam com osteoartrite em 2020, o que representa 7,6% da população global — um aumento de 132% desde 1990 (GBD 2021 Osteoarthritis Collaborators, Lancet Rheumatology, 2023). Estima-se que, em 2050, esse número se aproxime de 1 bilhão de pessoas (IHME, 2023).</p>
+
+<p>A boa notícia? A osteoartrite de joelho tem tratamento, e na maioria dos casos a cirurgia não é a primeira — nem a única — opção. Este artigo vai te ajudar a entender a doença de forma clara e baseada em evidências, para que você possa tomar decisões informadas sobre sua saúde.</p>
+
+<h3>O que é osteoartrite?</h3>
+
+<p>A osteoartrite é uma doença degenerativa da articulação. Ela se caracteriza pelo desgaste progressivo da cartilagem articular — aquela camada lisa e resistente que reveste as extremidades dos ossos e permite o movimento suave entre eles.</p>
+
+<p>Para entender melhor, imagine que seus ossos são como dois pedaços de madeira que se encaixam. A cartilagem é como uma camada de verniz que os protege. Na osteoartrite, esse verniz vai se desgastando, e os ossos passam a se atritar diretamente, causando dor, inflamação e limitação dos movimentos.</p>
+
+<p>A osteoartrite representa cerca de 30 a 40% das consultas em ambulatórios de Reumatologia no Brasil (Sociedade Brasileira de Reumatologia — SBR, 2022). O joelho é a articulação mais frequentemente afetada, com aproximadamente 374 milhões de casos prevalentes no mundo em 2021 (GBD 2021 Knee Osteoarthritis, Journal of Orthopaedic Surgery and Research, 2025).</p>
+
+<h3>Fatores de risco</h3>
+
+<p>A osteoartrite não tem uma causa única. Ela é resultado da soma de diversos fatores. Conheça os principais:</p>
+
+<div class="artigo-tabela-wrapper" role="region" aria-label="Fatores de risco para osteoartrite" tabindex="0">
+    <table class="artigo-tabela">
+        <thead>
+            <tr>
+                <th>Fator de risco</th>
+                <th>Como influencia</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td><strong>Idade</strong></td><td>A partir dos 40 anos, a prevalência aumenta progressivamente. Aos 75 anos, 85% das pessoas têm evidência radiológica ou clínica da doença, embora apenas 30-50% sintam dor crônica (SBR, 2022)</td></tr>
+            <tr><td><strong>Sexo feminino</strong></td><td>A osteoartrite é mais comum em mulheres, especialmente nas mãos e joelhos</td></tr>
+            <tr><td><strong>Obesidade</strong></td><td>É o principal fator de risco modificável. A obesidade foi responsável por cerca de 20% da incapacidade causada pela osteoartrite em 2020 (IHME, 2023). Cada quilo perdido reduz em 4 kg a carga sobre os joelhos</td></tr>
+            <tr><td><strong>Histórico de lesões</strong></td><td>Traumas prévios, cirurgias e lesões esportivas aumentam significativamente o risco</td></tr>
+            <tr><td><strong>Sobrecarga ocupacional</strong></td><td>Profissões que exigem ajoelhamento prolongado ou levantamento de peso</td></tr>
+            <tr><td><strong>Genética</strong></td><td>Predisposição familiar, especialmente nos nódulos de Heberden (dedos das mãos)</td></tr>
+            <tr><td><strong>Doenças pré-existentes</strong></td><td>Diabetes, artrite reumatoide e gota aumentam o risco</td></tr>
+        </tbody>
+    </table>
+</div>
+
+<p class="artigo-fonte">Fontes: WHO Fact Sheet Osteoarthritis (2023); SBR (2022); GBD 2021 Collaborators</p>
+
+<h3>Sintomas</h3>
+
+<p>Os sintomas da osteoartrite de joelho geralmente se desenvolvem de forma gradual e incluem:</p>
+
+<ul>
+    <li><strong>Dor:</strong> piora com o movimento e melhora com o repouso; pode ser mais intensa ao iniciar a marcha após períodos parado (dor inicial)</li>
+    <li><strong>Rigidez matinal:</strong> dura menos de 30 minutos, diferente de outras artrites inflamatórias</li>
+    <li><strong>Inchaço:</strong> pode ocorrer após atividades mais intensas</li>
+    <li><strong>Estalos e crepitação:</strong> sensação de "areia" ou atrito ao mover o joelho</li>
+    <li><strong>Redução da amplitude de movimento:</strong> dificuldade para esticar ou flexionar completamente o joelho</li>
+    <li><strong>Instabilidade:</strong> sensação de que o joelho "vai falhar"</li>
+</ul>
+
+<p class="artigo-alerta"><strong>Importante: O nível de dor nem sempre corresponde ao grau de desgaste visto nos exames de imagem. Muitas pessoas com alterações importantes na radiografia têm pouca dor, e vice-versa. A dor é influenciada por fatores físicos, emocionais e sociais (SBR, 2022).</strong></p>
+
+<h3>Diagnóstico</h3>
+
+<p>O diagnóstico da osteoartrite de joelho é essencialmente clínico. Isso significa que seu médico pode diagnosticar a doença com base na sua história e no exame físico, sem depender exclusivamente de exames complementares.</p>
+
+<p>Na consulta, o médico irá:</p>
+<ol>
+    <li>Perguntar sobre seus sintomas (quando começaram, o que melhora, o que piora)</li>
+    <li>Investigar seu histórico de lesões, doenças e fatores de risco</li>
+    <li>Realizar o exame físico do joelho (avaliar dor à palpação, crepitação, amplitude de movimento, alinhamento e estabilidade)</li>
+</ol>
+
+<p>Exames complementares podem incluir:</p>
+<ul>
+    <li><strong>Radiografia simples:</strong> o exame mais utilizado; mostra a redução do espaço articular (desgaste da cartilagem), presença de osteófitos ("bicos de papagaio") e alterações ósseas</li>
+    <li><strong>Ressonância magnética:</strong> reservada para casos com suspeita de lesões associadas (meniscos, ligamentos) ou quando o diagnóstico não está claro</li>
+    <li><strong>Ultrassonografia:</strong> útil para avaliar presença de derrame articular (inchaço interno) e cistos</li>
+</ul>
+
+<p>A Diretriz Brasileira para o Tratamento Não Cirúrgico da Osteoartrite de Joelho (Conitec, 2024) recomenda que o diagnóstico seja baseado na combinação de achados clínicos e, quando necessário, radiológicos.</p>
+
+<h3>Tratamento</h3>
+
+<p>O tratamento da osteoartrite de joelho evoluiu muito nos últimos anos. Hoje, sabe-se que a abordagem mais eficaz é multimodal — ou seja, combina diferentes estratégias que atuam em conjunto. A cirurgia (artroplastia — prótese de joelho) é reservada para casos avançados que não respondem ao tratamento clínico.</p>
+
+<h4>1. Tratamento não farmacológico (pilares fundamentais)</h4>
+
+<p><strong>Controle de peso:</strong> É a intervenção mais importante para osteoartrite de joelho. A perda de peso reduz significativamente a dor e melhora a função. A Diretriz Conitec (2024) recomenda perda de peso como primeira linha para pacientes com sobrepeso ou obesidade.</p>
+
+<p><strong>Exercício físico:</strong> Fortalecimento da musculatura anterior da coxa (quadríceps) é fundamental e indispensável no tratamento (SBR, 2022). Exercícios de baixo impacto como caminhada, hidroginástica, bicicleta e pilates são particularmente benéficos. A Conitec (2024) recomenda exercícios aeróbicos e de fortalecimento como terapia central.</p>
+
+<p><strong>Educação em dor e autocuidado:</strong> Entender que a dor não significa necessariamente dano progressivo é libertador para muitos pacientes. Programas de educação reduzem o medo do movimento e melhoram a adesão ao tratamento.</p>
+
+<p><strong>Fisioterapia e terapias manuais:</strong> Auxiliam na recuperação da amplitude de movimento, fortalecimento e correção de desequilíbrios musculares.</p>
+
+<h4>2. Tratamento farmacológico</h4>
+
+<p><strong>Analgésicos tópicos:</strong> Pomadas e géis com anti-inflamatórios são a primeira opção por terem poucos efeitos colaterais.</p>
+
+<p><strong>Anti-inflamatórios orais (AINEs):</strong> Podem ser usados por períodos curtos para controle da dor. O uso prolongado deve ser evitado devido aos riscos gastrointestinais, renais e cardiovasculares.</p>
+
+<p><strong>Paracetamol:</strong> Considerado seguro, mas sua eficácia em osteoartrite é limitada pela OMS e diretrizes internacionais (WHO, 2023).</p>
+
+<p><strong>Opioides:</strong> A Diretriz Conitec (2024) e a OMS (2023) não recomendam o uso de opioides para osteoartrite, pelos riscos de dependência e efeitos colaterais, sem evidência de benefício a longo prazo.</p>
+
+<h4>3. O papel da Cannabis Medicinal</h4>
+
+<p><em><strong>É importante ser transparente com você sobre o que a ciência diz até o momento.</strong></em></p>
+
+<p>A Cannabis Medicinal tem demonstrado efeitos promissores em dor crônica no geral, com atuação sobre o Sistema Endocanabinoide — o "maestro" do corpo que regula a dor, o sono e a inflamação. No entanto, para a osteoartrite de joelho especificamente, os estudos clínicos de alta qualidade disponíveis até 2026 não demonstraram superioridade do canabidiol (CBD) isolado em relação ao placebo.</p>
+
+<p>Vamos aos dados:</p>
+
+<p><strong>Ensaio clínico randomizado (2023, Lancet Reg Health Eur):</strong> Pesquisadores testaram CBD oral em alta dose (600 mg/dia) associado ao paracetamol por 8 semanas em pacientes com osteoartrite de joelho. Não houve diferença significativa entre o grupo CBD e o grupo placebo para dor ou função física (Vela et al., 2023).</p>
+
+<p><strong>Ensaio CANOA Trial (2025, Frontiers in Pharmacology):</strong> Realizado no Brasil pela Universidade Federal da Integração Latino-Americana, testou óleo rico em CBD (45 mg/dia) por 60 dias em pacientes com osteoartrite de joelho. Novamente, não houve diferença significativa entre o óleo de cannabis e o placebo nos desfechos primários de dor (Bicca et al., 2025).</p>
+
+<p>O que isso significa na prática? Que, baseado nas melhores evidências disponíveis hoje, o CBD isolado não deve ser considerado tratamento de primeira linha para a dor da osteoartrite.</p>
+
+<p>No entanto, isso não encerra a conversa. A pesquisa com cannabis medicinal está evoluindo rapidamente. Estudos em animais sugerem potencial anti-inflamatório, e combinações diferentes de canabinoides (CBD + THC em proporções específicas, outros canabinoides como CBG e CBN) ainda precisam ser testadas em ensaios clínicos. Além disso, existem estudos em andamento na Unila e em outras instituições brasileiras investigando extratos com proporções diferentes de canabinoides.</p>
+
+<p>O uso de Cannabis Medicinal deve ser individualizado e baseado na avaliação clínica completa, como parte de um plano terapêutico mais amplo — nunca como tratamento isolado. Consulte sempre um médico capacitado.</p>
+
+<h4>4. Medicamentos injetáveis e procedimentos</h4>
+
+<ul>
+    <li><strong>Corticosteroides intra-articulares:</strong> Injeções no joelho para crises agudas de dor intensa com derrame. Efeito temporário (semanas a meses).</li>
+    <li><strong>Ácido hialurônico (viscossuplementação):</strong> A OMS (2023) considera que não há evidências suficientes para recomendar seu uso de rotina.</li>
+    <li><strong>Plasma rico em plaquetas (PRP) e células-tronco:</strong> A OMS (2023) afirma que não há evidências suficientes para recomendar terapias com células-tronco para osteoartrite. Estudos estão em andamento.</li>
+</ul>
+
+<h4>5. Tratamento cirúrgico</h4>
+
+<p>Reservado para casos com dor intensa e persistente, limitação funcional significativa e falha do tratamento clínico bem conduzido. As opções incluem artroplastia total do joelho (prótese) e, em casos selecionados, osteotomias (realinhamento ósseo).</p>
+
+<h3>Prevenção e cuidados</h3>
+
+<p>A osteoartrite não é uma consequência inevitável do envelhecimento (WHO, 2023). Há muito que pode ser feito para prevenir ou retardar seu aparecimento:</p>
+
+<ul>
+    <li>Mantenha o peso corporal adequado — cada quilo perdido reduz sobrecarga significativa nos joelhos</li>
+    <li>Pratique atividade física regular — fortalecimento muscular protege as articulações</li>
+    <li>Evite sobrecarga repetitiva — alterne posições no trabalho, use calçados adequados</li>
+    <li>Alimente-se de forma anti-inflamatória — priorize alimentos in natura, ricos em ômega-3 e antioxidantes</li>
+    <li>Corrija desalinhamentos e fraquezas musculares com acompanhamento fisioterapêutico</li>
+    <li>Não ignore a dor — quanto mais cedo o diagnóstico, melhores as chances de sucesso do tratamento conservador</li>
+</ul>
+
+<h3>Conclusão</h3>
+
+<p>A osteoartrite de joelho é uma condição extremamente comum, mas isso não significa que você precise simplesmente "aceitar" a dor. O tratamento moderno oferece um leque amplo de opções, que vai desde mudanças no estilo de vida até terapias medicamentosas seguras — tudo com o objetivo de devolver qualidade de vida.</p>
+
+<p>A melhor abordagem é aquela que combina:</p>
+<ul>
+    <li>Controle de peso e exercícios direcionados</li>
+    <li>Educação em dor e autocuidado</li>
+    <li>Estratégias farmacológicas quando necessárias (com critério e segurança)</li>
+    <li>Acompanhamento médico próximo e individualizado</li>
+</ul>
+
+<p class="artigo-alerta"><strong>Importante: Este artigo tem caráter informativo e não substitui a consulta médica. Cada caso é único e merece uma avaliação individualizada.</strong></p>
+
+<p>Se você sofre com dor no joelho e quer entender qual a melhor abordagem para o seu caso, agende uma consulta para uma avaliação completa.</p>`
+    },
     {
         slug: "cannabis-medicinal-mito-verdade-tratamento-dor-insonia",
         titulo: "Cannabis Medicinal: O que é mito, o que é verdade e como ela pode transformar o tratamento da dor e da insônia",
         resumo: "Quando você ouve falar em &ldquo;Cannabis Medicinal&rdquo;, qual é a primeira coisa que vem à sua mente? É absolutamente normal que surjam dúvidas, receios e até um pouco de preconceito.",
         data: "2026-04-13",
-        autor: "Dr. Renato Ishizava",
+        imagem: "imagens/imgart1.png",
+        fundo: "imagens/fundo1.png",
         conteudo: `
 <p>Quando você ouve falar em &ldquo;Cannabis Medicinal&rdquo;, qual é a primeira coisa que vem à sua mente? É absolutamente normal que surjam dúvidas, receios e até um pouco de preconceito. Afinal, por muito tempo, fomos ensinados a olhar para essa planta com desconfiança.</p>
 
@@ -138,20 +316,15 @@ const ARTIGOS = [
 
 <p>A Cannabis Medicinal não é mágica, mas é uma ferramenta poderosa, especialmente quando unida à Medicina do Estilo de Vida (ajustes na alimentação, movimento e rotina). O meu objetivo não é apenas prescrever um óleo; é ver você voltar a ter energia para brincar com seus filhos, render bem no trabalho e curtir a sua família sem que a dor ou o cansaço ditem as regras.</p>
 
-<p>Se você sofre com dores constantes ou noites mal dormidas e quer entender se o tratamento com Cannabis Medicinal é indicado para o seu caso, eu estou aqui para te orientar com toda a segurança e ética.</p>
-
-<p>Atendo presencialmente em <strong>Tatuí-SP</strong> e via <strong>Telemedicina</strong> para todo o Brasil.</p>
-
-<a href='https://wa.me/5515991236775' target='_blank' class='btn-whatsapp-artigo'><i class='fa-brands fa-whatsapp'></i><span>Clique aqui para agendarmos a sua avaliação</span></a>
-
-<p class='assinatura'><strong>Dr. Renato Ishizava</strong><br>CRM/SP 217868 | RQE 135.751</p>`
+<p>Se você sofre com dores constantes ou noites mal dormidas e quer entender se o tratamento com Cannabis Medicinal é indicado para o seu caso, eu estou aqui para te orientar com toda a segurança e ética.</p>`
     },
     {
         slug: "dor-cronica-remedios-tradicionais-param-efeito",
         titulo: "Dor crônica: por que os remédios tradicionais param de fazer efeito (e o que fazer a respeito)",
         resumo: "Você acorda e, antes mesmo de levantar da cama, a dor já está lá. Você toma um anti-inflamatório ou um analgésico forte, sente um alívio passageiro, mas no fim do dia o ciclo recomeça.",
         data: "2026-04-13",
-        autor: "Dr. Renato Ishizava",
+        imagem: "imagens/imgart2.png",
+        fundo: "imagens/fundo2.png",
         conteudo: `
 <p>Você acorda e, antes mesmo de levantar da cama, a dor já está lá. Você toma um anti-inflamatório ou um analgésico forte, sente um alívio passageiro, mas no fim do dia o ciclo recomeça. Com o tempo, você percebe que já deixou de brincar com sua filha, cancelou um jantar com amigos ou perdeu o foco no trabalho porque o corpo simplesmente não aguentava.</p>
 
@@ -201,18 +374,15 @@ const ARTIGOS = [
 
 <p>Se você está cansado de tentar os mesmos tratamentos sem sucesso e busca um acompanhamento médico próximo, humano e personalizado, eu posso te ajudar.</p>
 
-<p>Atendo presencialmente em <strong>Tatuí-SP</strong> e também via <strong>Telemedicina</strong> para todo o Brasil.</p>
-
-<a href='https://wa.me/5515991236775' target='_blank' class='btn-whatsapp-artigo'><i class='fa-brands fa-whatsapp'></i> Clique aqui para agendar uma avaliação</a>
-
-<p class='assinatura'><strong>Dr. Renato Ishizava</strong><br>CRM/SP 217868 | RQE 135.245</p>`
+<p>Atendo presencialmente em <strong>Tatuí-SP</strong> e também via <strong>Telemedicina</strong> para todo o Brasil.</p>`
     },
     {
         slug: "insonia-cansado-remedios-tratar-pela-raiz",
         titulo: "Cansado de depender de remédios para dormir? Descubra como tratar a insônia pela raiz",
         resumo: "São 3 da manhã. Você olha para o relógio, faz as contas de quantas horas ainda tem para tentar dormir e a ansiedade só aumenta.",
         data: "2026-04-13",
-        autor: "Dr. Renato Ishizava",
+        imagem: "imagens/imgart3.png",
+        fundo: "imagens/fundo1.png",
         conteudo: `
 <p>São 3 da manhã. Você olha para o relógio, faz as contas de quantas horas ainda tem para tentar dormir e a ansiedade só aumenta. No dia seguinte, o cansaço é tanto que o seu rendimento no trabalho despenca e a paciência simplesmente desaparece. Você chega em casa exausto e a única coisa que queria era ter energia para brincar com seus filhos ou curtir um momento tranquilo com a sua família, mas o corpo não responde.</p>
 
@@ -253,18 +423,15 @@ const ARTIGOS = [
 
 <p>O desmame seguro e a construção de um sono de qualidade exigem um acompanhamento médico próximo, humano e personalizado.</p>
 
-<p>Atendo presencialmente em <strong>Tatuí-SP</strong> e também via <strong>Telemedicina</strong> para todo o Brasil.</p>
-
-<a href='https://wa.me/5515991236775' target='_blank' class='btn-whatsapp-artigo'><i class='fa-brands fa-whatsapp'></i> Clique aqui para agendar uma avaliação</a>
-
-<p class='assinatura'><strong>Dr. Renato Ishizava</strong><br>CRM/SP 217868 | RQE 135.245</p>`
+<p>Atendo presencialmente em <strong>Tatuí-SP</strong> e também via <strong>Telemedicina</strong> para todo o Brasil.</p>`
     },
     {
         slug: "rotina-melhor-remedio-pior-veneno-dor-insonia",
         titulo: "Por que a sua rotina pode ser o melhor remédio (ou o pior veneno) para a sua dor e insônia",
         resumo: "Você vai ao médico, recebe uma receita, passa na farmácia, compra o remédio e toma no horário certinho. Mas você já parou para pensar que a consulta médica dura cerca de uma hora, e você passa as outras 23 horas do dia convivendo com os seus próprios hábitos?",
         data: "2026-04-13",
-        autor: "Dr. Renato Ishizava",
+        imagem: "imagens/imgart4.png",
+        fundo: "imagens/fundo2.png",
         conteudo: `
 <p>Você vai ao médico, recebe uma receita, passa na farmácia, compra o remédio e toma no horário certinho. Mas você já parou para pensar que a consulta médica dura cerca de uma hora, e você passa as outras 23 horas do dia convivendo com os seus próprios hábitos?</p>
 
@@ -303,14 +470,22 @@ const ARTIGOS = [
 <p>A união da Medicina do Estilo de Vida com terapias modernas e seguras, como a Cannabis Medicinal, cria o ambiente perfeito para o seu corpo se recuperar. Enquanto a Cannabis ajuda a modular o sistema nervoso, tirando você da crise de dor e ansiedade, a Medicina do Estilo de Vida constrói a base forte para que você não dependa de remédios para sempre.</p>
 
 <p>Mudar o estilo de vida não significa virar a sua rotina de cabeça para baixo da noite para o dia. Significa ter um parceiro médico que vai te guiar, passo a passo, rumo a uma vida com mais energia e menos dor.</p>
-
-<p>Atendo presencialmente em <strong>Tatuí-SP</strong> e via <strong>Telemedicina</strong> para todo o Brasil.</p>
-
-<a href='https://wa.me/5515991236775' target='_blank' class='btn-whatsapp-artigo'><i class='fa-brands fa-whatsapp'></i> Clique aqui para agendarmos uma avaliação</a>
-
-<p class='assinatura'><strong>Dr. Renato Ishizava</strong><br>CRM/SP 217868 | RQE 135.245</p>`
+`
     }
 ];
+
+const ATENDIMENTO_INDIVIDUAL_REGEX =
+    /\s*<p>Atendo presencialmente em <strong>Tatuí-SP<\/strong> e(?: também)? via <strong>Telemedicina<\/strong> para todo o Brasil\.<\/p>\s*$/;
+
+ARTIGOS.forEach(artigo => {
+    artigo.autor = ARTIGO_AUTOR_PADRAO;
+
+    const conteudoIndividual = artigo.conteudo
+        .replace(ATENDIMENTO_INDIVIDUAL_REGEX, '')
+        .trimEnd();
+
+    artigo.conteudo = `${conteudoIndividual}${ARTIGO_RODAPE_PADRAO}`;
+});
 
 /* ============================================================
    CARREGAR LISTA DE ARTIGOS (index.html)
