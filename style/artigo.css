@@ -256,8 +256,29 @@
     .artigo-section { padding: 30px 12px 60px; background-attachment: scroll; }
     .artigo-meta { flex-direction: column; align-items: flex-start; gap: 4px; }
     .meta-sep { display: none; }
-    .btn-whatsapp-artigo { width: 100%; justify-content: center; padding: 12px 18px; font-size: 0.92rem; line-height: 1.35; gap: 8px; text-align: center; }
-    .btn-whatsapp-artigo span { display: inline-block; max-width: 100%; }
-    .btn-whatsapp-artigo i { font-size: 1.15rem; flex-shrink: 0; }
+    .btn-whatsapp-artigo {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        justify-content: center;
+        padding: 12px 14px;
+        margin: 26px 0 18px;
+        font-size: 0.88rem;
+        line-height: 1.35;
+        gap: 8px;
+        text-align: center;
+    }
+
+    .btn-whatsapp-artigo span {
+        display: inline-block;
+        min-width: 0;
+        max-width: 100%;
+        overflow-wrap: break-word;
+    }
+
+    .btn-whatsapp-artigo i {
+        font-size: 1.15rem;
+        flex-shrink: 0;
+    }
     .artigo-tabela-wrapper { margin-right: -8px; }
 }
